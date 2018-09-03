@@ -164,11 +164,14 @@ export default class ModalDropdown extends Component {
   }
 
   _renderButton() {
-    const { disabled, accessible, activeOpacity, children, textStyle } = this.props;
+    const { disabled, onLayout, accessible, activeOpacity, children, textStyle } = this.props;
     const { buttonText } = this.state;
 
     return (
-      <TouchableOpacity activeOpacity={activeOpacity} ref={button => this._button = button}
+      <TouchableOpacity
+        onLayout={onLayout}
+        activeOpacity={activeOpacity}
+        ref={button => this._button = button}
         disabled={disabled}
         accessible={accessible}
         onPress={this._onButtonPress}
